@@ -1,7 +1,8 @@
+
 var Scrabble = function() {};
 
 Scrabble.prototype = {
-  helloWorld: function() {return "Hello World!"},
+  helloWorld: function() {return "Hello World!";},
 
   // score(word): returns the total score value for the given word. The word is input as a string (case insensitive). The chart below shows the point value for a given letter.
 
@@ -78,9 +79,9 @@ Scrabble.prototype = {
         }
 
       }
-
-      for(var i = 0; i < words.length; i++) {
+      for(i = 0; i < words.length; i++) {
         // if the hightest score word & point put them into an empty array
+        // dealing with tie.
         if (Scrabble.prototype.score(words[i]) == max_score)
           max_scored_words.push(words[i]);
       }
@@ -89,25 +90,24 @@ Scrabble.prototype = {
 
       var shortest_word = max_scored_words[0];
       var winner;
-      for(var i = 0; i < max_scored_words.length; i++) {
-        console.log("max scored length: ",max_scored_words[i].length);
+      for(i = 0; i < max_scored_words.length; i++) {
+        // console.log("max scored length: ",max_scored_words[i].length);
+        // if their is highest scoring word tie go with the one with shortest letters.
         if (max_scored_words[i].length < shortest_word.length) {
           shortest_word = max_scored_words[i];
         }
       }
-      console.log("shortest word: ",shortest_word);
+      // console.log("shortest word: ",shortest_word);
       return shortest_word;
     }
 
-
-
-
-
   }; // scrabble end
-
-
+//
   // create a scrabble object?
   var myScrabble = new Scrabble();
+
+
+/*---------------------------------------------------------------*/
 
   // Test 1.
   /* score(word): returns the total score value for the given word. The word is input as a string (case insensitive). The chart below shows the point value for a given letter. */
@@ -146,16 +146,7 @@ console.log("should see zib:", myScrabble.highestScoreFrom(multi_tied_Collection
 // Test 4.
 /* Note that there is a bonus (50 points) for using all seven letters. If the top score is tied between multiple words and one used all seven letters, choose the one with seven letters over the one with fewer tiles. */
 // buzzcut = 29, fuzzing = 29, cat = 5, milk = 10
-// QUARTZ 
-
-
-
-
-
-
-
-
-
+// QUARTZ
 
 
   // Previous test example of what it make look like.
@@ -169,11 +160,5 @@ console.log("should see zib:", myScrabble.highestScoreFrom(multi_tied_Collection
   // it 'Two word tie goes to the word with fewest letters' do
   //   expect(Scrabble::Scoring.highest_score_from(["biz","quasi", "cat", "milk"])).must_equal("biz")
   // end
-
-
-
-
-
-
 
   module.exports = Scrabble;
