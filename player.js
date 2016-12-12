@@ -4,7 +4,7 @@ var Scrabble = require('./scrabble.js');
 // / Constructor: Called when you use new Player(name), sets up an instance with the instance variable name assigned
 // name: property which returns the value of the player's name
 // plays: property which returns an Array of the words played by the player
-
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
 
 var Player = function(playerName) {
   this.playerName = playerName;
@@ -13,7 +13,7 @@ var Player = function(playerName) {
 };
 
   Player.prototype = {
-    score: 0, 
+    score: 0,
 // // play(word): Function which adds the input word to the plays Array Returns false if player has already won
     playWord: function(word) {
       // if the player hasnt won yet, place the input word into the plays Array .
